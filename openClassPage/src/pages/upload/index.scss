@@ -1,0 +1,15 @@
+.index-container {
+    header {
+        position: relative;
+        line-height: 40px;
+        height: 40px;
+        background-color: #FFE4B5;;
+        .username {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 200px;
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.index-content{
+    margin: 15px 0 15px 0;
+    >p {
+        line-height: 30px;
+        display: flex;
+        &:first-child {
+            margin-bottom: 10px;
+        }
+        span {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        input{
+            flex: 1;
+            padding-left: 10px;
+        }
+    }
+    .tip {
+        color: #f51b1b;
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0 0 0 40px;
+        position: relative;
+        top: 5px;
+    }
+}
+.swiper{
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+}
+.tab{
+    ul {
+        li {
+            height: 200px;
+            &.green {
+                background-color: #0f0;
+            }
+            &.font{
+                font-size: 20px;
+            }
+            &.active {
+                font-weight: 600;
+            }
+            &.em {
+                font-style: italic;
+            }
+        }
+    }
+    ol {
+        display: flex;
+        justify-content: space-around;
+        width: 200px;
+        li {
+            font-size: 20px;
+            &:hover {
+                cursor: pointer;
+            }
+            &.active{
+                color: #f51b1b;
+            }
+
+        }
+    }
+}

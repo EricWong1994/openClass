@@ -1,0 +1,98 @@
+section {
+    .add {
+        height: 40px;
+        background-color: #fff;
+        position: relative;
+
+        >div {
+
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 18px;
+            line-height: 40px;
+
+            height: 40px;
+
+            .btn-add {
+                height: 40px;
+                width: 46px;
+                font-size: 34px;
+                vertical-align: bottom;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgb(217, 250, 28);
+                    transition: all 0.1s;
+                }
+            }
+        }
+    }
+
+    // .list-wrapper
+    .list-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        // list
+        .list {
+            margin: 15px;
+            width: 300px;
+            background-color: skyblue;
+            padding: 10px 30px 10px 10px;
+
+            >ul {
+                overflow: hidden;
+
+                >li {
+                    line-height: 40px;
+                    display: flex;
+                    margin: 10px 0;
+
+                    span {
+                        font-size: 14px;
+                        width: 60px;
+                    }
+
+                    input {
+                        padding-left: 10px;
+                        flex: 1;
+
+                    }
+
+                    &.state {
+                        align-items: center;
+
+                        input {
+                            height: 20px;
+                            font-size: 18px;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .btns {
+                text-align: center;
+
+                button {
+                    width: 80px;
+                    height: 30px;
+
+                    &:first-child {
+                        margin: 0 10px 0 30px;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        // color: #fff;
+                        background-color: rgb(217, 250, 28);
+                        transition: all 0.1s;
+                    }
+                }
+            }
+        }
+    }
+}
