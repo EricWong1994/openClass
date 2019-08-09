@@ -85,14 +85,15 @@ export default {
   },
   methods: {
     req() {
-      this.$axios.post("http://localhost:3001/create", 123).then(res => {
+      // this.$axios.post("http://localhost:3001/create", 123).then(res => {
+      this.$axios.post("/create", 123).then(res => {
         console.log("res返回了", res);
       });
     },
    handleDelete(index) {
      var number = this.tableData[index].id;
      console.log(number)
-      this.$axios.post("http://localhost:3001/delete", {id:number}).then(res => {
+      this.$axios.post("/delete", {id:number}).then(res => {
         console.log("刪除返回", res);
         this.tableData = res.data;
       });
@@ -110,7 +111,7 @@ export default {
     },
   },
   mounted() {
-      this.$axios.post("http://localhost:3001/read", 123).then(res => {
+      this.$axios.post("/read", 123).then(res => {
         console.log("列表返回了", res);
         this.tableData = res.data;
       });

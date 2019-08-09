@@ -45,12 +45,10 @@ import "./index.scss";
 export default {
   data() {
     return {
-    //  listData:[]
     };
   },
   props: ["listData"],
   mounted(){
-    // this.listData = this.list;
     console.log('子组件接受列表:',this.listData);
   },
   methods: {
@@ -64,8 +62,8 @@ export default {
         });
     },
     addList(){
-      // console.log(this.listData)
-       this.$axios.post("http://localhost:3001/create", this.listData).then(res => {
+      //  this.$axios.post("http://localhost:3001/create", this.listData).then(res => {
+       this.$axios.post("/create", this.listData).then(res => {
           console.log('添加成功')
       });
     },

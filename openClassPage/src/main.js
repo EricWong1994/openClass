@@ -6,6 +6,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import  ElementUI from 'element-ui';
 Vue.use(ElementUI);
 
+console.log('环境',process.env.NODE_ENV)
+process.env.NODE_ENV === 'development' && require('../mock/index.js')
 // import  {Table,Row,Col,TableColumn, Popover, Tooltip,Menu,Button,MenuItem } from 'element-ui';
 
 // Vue.use(Table);

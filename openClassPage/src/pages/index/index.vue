@@ -86,7 +86,10 @@ export default {
     },
     // 登录请求
     loginReq(userdata) {
-      this.$axios.post("http://localhost:3001/login", userdata).then(res => {
+      // this.$axios.post("http://localhost:3001/login", userdata).then(res => {
+      this.$axios.post("/login", userdata).then(res => {
+          console.log(res);
+
         if (res.data.status === 0) {
           this.$refs.tip.innerText = res.data.error;
           this.tipFlag = true;
@@ -99,7 +102,6 @@ export default {
             this.$router.push({
               path:'/list'
             })
-            // window.location.href = "http://localhost:8080/#/list";
           }, 1000);
         }
       });
@@ -111,7 +113,7 @@ export default {
         name + "=" + escape(value) + ";expires=" + exp.toGMTString;
     },
     registerReq(userdata) {
-      this.$axios.post("http://localhost:3000/register", userdata).then(res => {
+      this.$axios.post("/register", userdata).then(res => {
         if (res.data.status === 0) {
           this.$refs.tip.innerText = res.data.error;
           this.tipFlag = true;

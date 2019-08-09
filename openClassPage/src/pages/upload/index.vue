@@ -34,7 +34,7 @@ export default {
     console.log('父组件发送列表',this.listData)
     if(this.$route.params.id) {
       console.log('发起修改请求')
-       this.$axios.post("http://localhost:3001/mode", {id:this.$route.params.id}).then(res => {
+       this.$axios.post("/mode", {id:this.$route.params.id}).then(res => {
         console.log("编辑返回", res.data[0]);
         this.listData = [res.data[0]];
       });

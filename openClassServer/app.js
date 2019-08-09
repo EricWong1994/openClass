@@ -25,6 +25,6 @@ app.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*');
     await next()
 })
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('服务启动')
 })
