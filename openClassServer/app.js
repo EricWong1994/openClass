@@ -1,9 +1,13 @@
-// const Koa = require('koa');
 const Koa = require('koa');
 const app = new Koa();
 const routers = require('./routers');
 const session = require('koa-session');
 const koabody = require('koa-body');
+const static = require('koa-static');
+const path = require('path');
+
+app.use(static(path.join(__dirname,'static')));
+
 app.use(koabody());
 app.keys = ['koa-web-site'];
 app.use(session({
@@ -17,12 +21,14 @@ app.use(session({
     renew: false,  //(boolean) renew session when session is nearly expired,
 },app))
 app.use(routers.routes());
-// app.use((ctx)=> {
-//     ctx.body = '访问成功'
-// })
+
 app.use(async (ctx, next) => {
     ctx.set('Access-Control-Allow-Header','Content-type')
     ctx.set('Access-Control-Allow-Origin', '*');
+    ctx.set('Access-Control-Allow-Credentials',true)
+    if(ctx.path === '/favicon.ico') {
+        ctx.body = '';
+    }
     await next()
 })
 app.listen(3000, () => {

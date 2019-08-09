@@ -1,0 +1,19 @@
+.header {
+    position: relative;
+    // line-height: 40px;
+    // height: 40px;
+    // background-color: #FFE4B5;;
+    .username {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 200px;
+        font-size: 14px;
+        color: #fff;
+        height: 60px;
+        line-height: 60px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

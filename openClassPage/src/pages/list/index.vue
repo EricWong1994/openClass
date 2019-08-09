@@ -4,6 +4,7 @@
     <Nav></Nav>
     <!-- <List :listData="listData"></List> -->
    <!-- 表格 -->
+   <div class="form">
       <template>
     <el-table
       :data="tableData"
@@ -53,6 +54,7 @@
       </el-table-column>
     </el-table>
    </template>
+   </div>
   </div>
 </template>
 <script>
@@ -69,11 +71,11 @@ export default {
       activeIndex: "1",
       activeIndex2: "1",
       tableData: [{
-          label: 'h5大前端',
-          batch: 1906,
-          startDate: "20190920",
-          address: "北京校区",
-          status: true,
+          label: '',
+          batch: "",
+          startDate: "",
+          address: "",
+          status: "",
           id:''
         }]
     };

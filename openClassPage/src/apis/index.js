@@ -9,8 +9,8 @@ var env = process.env.NODE_ENV;
 // } else {
 // }
 
-if(env === 'production') {
-// if (env === 'development') {
+// if(env === 'production') {
+if (env === 'development') {
     console.log(env);
     Axios.defaults.baseURL = 'http://localhost:3000'
     Axios.interceptors.response.use(

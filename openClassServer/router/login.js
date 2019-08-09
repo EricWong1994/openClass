@@ -9,11 +9,15 @@ router.post('/', async (ctx, next) => {
     // ctx.body = '登录页';
     var result = await login(userdata);
     if (result.length > 0) {
-        ctx.session = {
-            username: userdata.username,
-            password: userdata.password,
-            id: result[0].id
-        }
+        ctx.cookies.set('userid',userdata.username,{
+            maxAge:720000,
+            expires:'2018/8/10'
+        })
+        // ctx.session = {
+        //     username: userdata.username,
+        //     password: userdata.password,
+        //     id: result[0].id
+        // }
         ctx.body = handleParam({
             data: ctx.session
         });

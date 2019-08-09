@@ -19,6 +19,6 @@ export default {
 <style lang="scss" scoped>
 @import './common/style/reset.css';
 #app {
-  background:#F2F2F2;
+  // background:#F2F2F2;
 }
 </style>

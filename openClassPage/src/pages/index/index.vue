@@ -59,7 +59,6 @@ export default {
     login() {
       this.title = "登录";
       this.btns = ["确定", "取消"];
-      // this.content = '请您先登录后再进行购买，谢谢您的配合!';
       this.flag = true;
       this.type = "login";
       this.tipFlag = false;
@@ -67,13 +66,11 @@ export default {
     register() {
       this.title = "注册";
       this.btns = ["注册", "取消"];
-      // this.content = '请注册';
       this.flag = true;
       this.type = "register";
       this.tipFlag = false;
     },
     handleReq(data) {
-      //   this.flag = data;
       let userdata = {
         username: this.$refs.username.value,
         password: this.$refs.password.value
@@ -86,10 +83,8 @@ export default {
     },
     // 登录请求
     loginReq(userdata) {
-      // this.$axios.post("http://localhost:3001/login", userdata).then(res => {
       this.$axios.post("/login", userdata).then(res => {
           console.log(res);
-
         if (res.data.status === 0) {
           this.$refs.tip.innerText = res.data.error;
           this.tipFlag = true;
@@ -97,7 +92,7 @@ export default {
           const {username,password,id} = res.data.data;
           this.$refs.tip.innerText = "登录成功";
           this.tipFlag = true;
-          this.setcookie('username',username);
+          // this.setcookie('username',username);
           setTimeout(()=> {
             this.$router.push({
               path:'/list'
