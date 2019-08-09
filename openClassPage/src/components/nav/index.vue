@@ -11,32 +11,12 @@
     >
       <el-menu-item index="1" @click="listPage">列表页</el-menu-item>
       <el-menu-item index="2" @click="uploadPage">上传页</el-menu-item>
-      <!-- <el-submenu index="2">
-          <template slot="title">上传页</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-      </el-submenu>-->
-      <!-- <el-menu-item index="3" disabled>消息中心</el-menu-item> -->
-      <!-- <el-menu-item index="4">
-          <a href="https://www.ele.me" target="_blank">订单管理</a>
-      </el-menu-item>-->
-      <!-- <el-menu-item index="1"></el-menu-item> -->
     </el-menu>
-    <!-- <header> -->
-    <!-- <div @click="req">请求</div> -->
     <div class="username">
       欢迎您：
       <span class="userText" ref="name"></span>
       <span class="loginout">退出登录</span>
     </div>
-    <!-- </header> -->
   </div>
 </template>
 <script>

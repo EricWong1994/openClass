@@ -69,12 +69,6 @@ module.exports = {
             template: 'index.html',
             inject: true
         }),
-       /*  打包多个html
-       new HtmlWebpackPlugin({
-            filename: 'index2.html',
-            template: 'index2.html',
-            inject: true
-        }), */
         new VueLoaderPlugin(),
         new CopyWebpackPlugin([
             {

@@ -24,7 +24,7 @@ exports.login = function (userdata) {
 }
 
 exports.read = function (listData) {
-    let sql = 'select * from `class-opening-plan`';
+    let sql = 'select * from `class-opening-plan-test`';
     return new Promise((resolve, reject) => {
         database.query(sql, (err, rows) => {
             if (err) {
@@ -49,7 +49,7 @@ exports.create = function (listData) {
     // let sql = 'insert into `class-open`(username, password)' + `values("${username}", "${password}" )`;
     // let sql = 'insert into `class-opening-plan`(label,batch,startDate,address,status)' + `values("${label}","${batch}","${startDate}","${address}","${status}")`;
     // 拼接字符串。
-    let sql = 'insert into  `class-opening-plan`(label,batch,startDate,address,status) values ("' + label + '","'+batch+'"," ' + startDate + '","' + address + '"," ' + status + '")';
+    let sql = 'insert into  `class-opening-plan-test`(label,batch,startDate,address,status) values ("' + label + '","'+batch+'"," ' + startDate + '","' + address + '"," ' + status + '")';
     // let sql = 'insert into + `class-opening-plan`(label,batch,startDate,address,status) values ("${label}","${batch}","${startDate}","${address}","${status}")';
     return new Promise((resolve, reject) => {
         database.query(sql, (err, rows) => {
@@ -64,7 +64,7 @@ exports.create = function (listData) {
 
 // 刪除
 exports.deleteList = function (id) {
-     let sql = 'delete from  `class-opening-plan`' + `where id="${+id}"`;
+     let sql = 'delete from  `class-opening-plan-test`' + `where id="${+id}"`;
     return new Promise((resolve, reject) => {
         database.query(sql, (err, rows) => {
             if (err) {
@@ -79,7 +79,8 @@ exports.deleteList = function (id) {
 // 编辑列表页数据
 exports.modeList = function (userdata) {
     const id = userdata;
-    let sql = 'select * from `class-opening-plan`' + ` where id="${+id}"`;
+    console.log('id',id)
+    let sql = 'select * from `class-opening-plan-test`' + ` where id="${+id}"`;
     return new Promise((resolve, reject) => {
         database.query(sql, (err, rows) => {
             if (err) {
@@ -101,7 +102,8 @@ exports.updateList = function (userdata) {
         address,
         status,
     } = userdata;
-    let sql = 'update `class-opening-plan`'+ `set batch='${batch}',label='${label}',startDate='${startDate}',status='${status}',address='${address}'where id='${id}'`;
+    console.log(id)
+    let sql = 'update `class-opening-plan-test`'+ `set batch='${batch}',label='${label}',startDate='${startDate}',status='${status}',address='${address}'where id='${+id}'`;
     return new Promise((resolve, reject) => {
         database.query(sql, (err, rows) => {
             if (err) {

@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="list-wrapper">
-      <div class="list" v-for="(item,index) in listData" :key="(index)">
+      <div  class="list" v-for="(item,index) in listData" :key="(index)">
         <ul>
           <li>
             <span>课程名称</span>
@@ -27,12 +27,12 @@
           </li>
           <li class="state">
             <span>状态</span>
-            <input type="radio" placeholder="请输入" :name="index+'radio'" @click="stateChangeT(index)"/>
-            <input type="radio" placeholder="请输入" :name="index+'radio'" @click="stateChangeF(index)"/>
+            <input type="radio" placeholder="请输入" :name="index+'radio'" @click="stateChangeT(index)"/><span>招生中</span>
+            <input type="radio" placeholder="请输入" :name="index+'radio'" @click="stateChangeF(index)"/><span>已招满</span>
           </li>
         </ul>
         <div class="btns">
-          <button @click="addList">添加</button>
+          <button @click="addList">一键添加</button>
           <button @click="delNewList(index)">删除</button>
         </div>
       </div>
@@ -45,13 +45,17 @@ import "./index.scss";
 export default {
   data() {
     return {
-
+    //  listData:[]
     };
   },
   props: ["listData"],
+  mounted(){
+    // this.listData = this.list;
+    console.log('子组件接受列表:',this.listData);
+  },
   methods: {
     addNewList() {
-      this.listData.push( {
+      this.listData.push({
           label: "",
           batch: '',
           startDate: "",
@@ -60,7 +64,7 @@ export default {
         });
     },
     addList(){
-      console.log(this.listData)
+      // console.log(this.listData)
        this.$axios.post("http://localhost:3001/create", this.listData).then(res => {
           console.log('添加成功')
       });
@@ -69,10 +73,10 @@ export default {
       this.listData.splice(index, 1);
     },
     stateChangeT(index){
-      this.listData[index].status = true
+      this.listData[index].status = 1
     },
     stateChangeF(index){
-      this.listData[index].status = false
+      this.listData[index].status = 0
     },
   }
 };

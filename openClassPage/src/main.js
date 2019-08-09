@@ -1,12 +1,18 @@
 import Vue from 'vue';
 import App from './app.vue';
-// import Server from './server/index.js'
 import * as Server  from './apis/index.js'
 import router from './router/index.js'
-import  ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
-
+import  ElementUI from 'element-ui';
 Vue.use(ElementUI);
+
+// import  {Table,Row,Col,TableColumn, Popover, Tooltip,Menu,Button,MenuItem } from 'element-ui';
+
+// Vue.use(Table);
+// Vue.use(TableColumn);
+// Vue.use(Menu);
+// Vue.use(Button);
+// Vue.use(MenuItem);
 
 router.beforeEach((to, from, next) => {
     /* 路由发生变化修改页面title */
