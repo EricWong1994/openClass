@@ -79,23 +79,19 @@ export default {
         password: this.$refs.password.value
       };
       if (this.type === "login") {
-        console.log("登录");
         this.loginReq(userdata);
       } else if (this.type === "register") {
-        console.log("注册");
         this.registerReq(userdata);
       }
     },
     // 登录请求
     loginReq(userdata) {
       this.$axios.post("http://localhost:3001/login", userdata).then(res => {
-        console.log(res);
         if (res.data.status === 0) {
           this.$refs.tip.innerText = res.data.error;
           this.tipFlag = true;
         } else if (res.data.status === 200) {
           const {username,password,id} = res.data.data;
-          console.log(this.$refs);
           this.$refs.tip.innerText = "登录成功";
           this.tipFlag = true;
           this.setcookie('username',username);
@@ -116,12 +112,10 @@ export default {
     },
     registerReq(userdata) {
       this.$axios.post("http://localhost:3000/register", userdata).then(res => {
-        console.log(res);
         if (res.data.status === 0) {
           this.$refs.tip.innerText = res.data.error;
           this.tipFlag = true;
         } else if (res.data.status === 200) {
-          console.log(this.$refs);
           this.$refs.tip.innerText = "注册成功";
           this.tipFlag = true;
         }

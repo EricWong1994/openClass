@@ -17,7 +17,6 @@ if (env === 'development') {
 Axios.interceptors.response.use(
     // server.interceptors.response.use(
     res => {
-        console.log(res)
         // 对响应数据做点什么
         if (res.status === 200) {
             return res;
@@ -25,10 +24,7 @@ Axios.interceptors.response.use(
         }
     },
     err => {
-        console.dir(err);
-        console.log('err',err);
         let status = err.response.status;
-        // console.log(typeof status); //number
         switch(+status){
             case 404:alert('页面未找到')
         }
@@ -41,12 +37,11 @@ Axios.interceptors.response.use(
 )
 
 Axios.interceptors.request.use(request => {
-        console.log(request)
         //请求拦截
         // if(request.method !== 'post') {
         //     alert('请使用post请求')
         // }
-        console.log(process.env.NODE_ENV)
+        // console.log(process.env.NODE_ENV)
         return Promise.resolve(request)
     }
 )

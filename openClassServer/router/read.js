@@ -4,7 +4,6 @@ const {
 const Router = require('koa-router');
 const router = new Router();
 router.post('/', async (ctx, next) => {
-  console.log('读取列表');
   const result = await read({
     label: "h5大前端",
     batch: '1906',

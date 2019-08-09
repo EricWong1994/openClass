@@ -11,28 +11,28 @@
         <ul>
           <li>
             <span>课程名称</span>
-            <input type="text" v-model="item.courseName" placeholder="请输入课程命名"/>
+            <input type="text" v-model="item.label" placeholder="请输入课程命名"/>
           </li>
           <li>
             <span>班级</span>
-            <input type="text" placeholder="请输入班级" />
+            <input type="text" placeholder="请输入班级" v-model="item.batch" />
           </li>
           <li>
             <span>日期</span>
-            <input type="text" placeholder="请输入日期"/>
+            <input type="text" placeholder="请输入日期" v-model="item.startDate"/>
           </li>
           <li>
             <span>校区</span>
-            <input type="text" placeholder="请输入校区"/>
+            <input type="text" placeholder="请输入校区" v-model="item.address"/>
           </li>
           <li class="state">
             <span>状态</span>
-            <input type="radio" placeholder="请输入" :name="index+'radio'"/>
-            <input type="radio" placeholder="请输入" :name="index+'radio'"/>
+            <input type="radio" placeholder="请输入" :name="index+'radio'" @click="stateChangeT(index)"/>
+            <input type="radio" placeholder="请输入" :name="index+'radio'" @click="stateChangeF(index)"/>
           </li>
         </ul>
         <div class="btns">
-          <button>添加</button>
+          <button @click="addList">添加</button>
           <button @click="delNewList(index)">删除</button>
         </div>
       </div>
@@ -45,40 +45,35 @@ import "./index.scss";
 export default {
   data() {
     return {
-    //   newList: [
-    //     {
-    //       courseName: "",
-    //       label: "h5大前端",
-    //       batch: 1905,
-    //       startDate: "20190823",
-    //       address: "北京校区",
-    //       status: false
-    //     },
-    //   ],
+
     };
   },
   props: ["listData"],
-  mounted() {
-    // console.log("listData", this.listData);
-  },
   methods: {
     addNewList() {
       this.listData.push( {
-          courseName: "",
           label: "",
           batch: '',
           startDate: "",
           address: "",
-          status: ''
+          status: ""
         });
-    //   console.log(this.listData);
+    },
+    addList(){
+      console.log(this.listData)
+       this.$axios.post("http://localhost:3001/create", this.listData).then(res => {
+          console.log('添加成功')
+      });
     },
     delNewList(index) {
       this.listData.splice(index, 1);
     },
-    mounted() {
-      
-    }
+    stateChangeT(index){
+      this.listData[index].status = true
+    },
+    stateChangeF(index){
+      this.listData[index].status = false
+    },
   }
 };
 </script>

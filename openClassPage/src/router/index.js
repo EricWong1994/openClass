@@ -21,7 +21,7 @@ export default new Router({
         },
         {
             name:'list',
-            path:'/list',
+            path:'/list/:id?',
             component:List,
             meta:{
                 title:'列表页'
@@ -29,7 +29,7 @@ export default new Router({
         },
         {
             name:'upload',
-            path:'/upload',
+            path:'/upload/:id?',
             component:Upload,
             meta:{
                 title:'上传页'
